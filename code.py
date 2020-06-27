@@ -20,7 +20,7 @@ pretrained_model_path = '' # path of pretrained model
 model_save_path = '' # path of model to save
 train_image_dir = os.path.join(train_dir, 'train_images') #
 
-# original image is 1600x256, so we will resize it
+# resize image
 img_w = 800 # resized weidth
 img_h = 256 # resized height
 batch_size = 12
