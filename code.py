@@ -11,8 +11,7 @@ import numpy as np
 import os
 import cv2
 
-# Kernel Configurations
-make_submission = False # used to turn off lengthy model analysis so a submission version doesn't run into memory error
+# Configurations
 load_pretrained_model = True # load a pre-trained model
 save_model = True # save the model after training
 train_dir = '' # directory of training images
