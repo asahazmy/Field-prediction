@@ -11,14 +11,12 @@ import numpy as np
 import os
 import cv2
 
-# Kernel Configurations
-make_submission = False # used to turn off lengthy model analysis so a submission version doesn't run into memory error
-load_pretrained_model = True # load a pre-trained model
+#Configurations
+load_pretrained_model = False # load a pre-trained model
 save_model = True # save the model after training
 train_dir = '' # directory of training images
 pretrained_model_path = '' # path of pretrained model
 model_save_path = '' # path of model to save
-train_image_dir = os.path.join(train_dir, 'train_images') #
 
 epochs = 25
 # batch size for training unet
@@ -82,9 +80,7 @@ for image, mask in train.take(4):
   sample_image, sample_mask = image, mask
 display([sample_image, sample_mask])
 
-
 '''ResUnet'''
-
 def bn_act(x, act=True):
     'batch normalization layer with an optinal activation layer'
     x = tf.keras.layers.BatchNormalization()(x)
