@@ -20,17 +20,12 @@ pretrained_model_path = '' # path of pretrained model
 model_save_path = '' # path of model to save
 train_image_dir = os.path.join(train_dir, 'train_images') #
 
-# original image is 1600x256, so we will resize it
-img_w = 800 # resized weidth
-img_h = 256 # resized height
 epochs = 25
 # batch size for training unet
 k_size = 3 # kernel size 3x3
 val_size = .20 # split of training set between train and validation set
-# we will repeat the images with lower samples to make the training process more fair
-repeat = False
 
-
+TRAIN_LENGTH = info.splits['train'].num_examples
 BATCH_SIZE = 64
 BUFFER_SIZE = 1000
 STEPS_PER_EPOCH = TRAIN_LENGTH // BATCH_SIZE
@@ -63,7 +58,6 @@ def load_image_test(datapoint):
 
   return input_image, input_mask
 
-TRAIN_LENGTH = info.splits['train'].num_examples
 train = dataset['train'].map(load_image_train, num_parallel_calls=tf.data.experimental.AUTOTUNE)
 test = dataset['test'].map(load_image_test)
 
